@@ -141,7 +141,6 @@ async function initFileUrl() {
     }
 
     const file = new File([blob], fileName, { type: blob.type })
-    debugger
     docmentObj.value = { fileName, file }
     showCreateDialog.value = false
   } catch (err) {
