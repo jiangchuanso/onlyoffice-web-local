@@ -31,3 +31,18 @@ coverage
 html
 test-results/
 playwright-report/
+
+# Build artifacts (compiled JS and source maps)
+*.js.map
+*.vue.js
+src/**/*.js
+vite.config.js
+e2e/vue.spec.js
+playwright.config.js
+
+# Test artifacts (generated screenshots / fixtures)
+tests/*.png
+tests/*.docx
+
+# Local tooling data
+.codebuddy/
