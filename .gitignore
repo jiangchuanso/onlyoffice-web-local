@@ -45,5 +45,12 @@ playwright.config.js
 tests/*.png
 tests/*.docx
 
+# Auto-generated type declarations (unplugin-auto-import / unplugin-vue-components)
+auto-imports.d.ts
+components.d.ts
+
+# Playwright / e2e leftovers (template test removed)
+e2e/
+
 # Local tooling data
 .codebuddy/
