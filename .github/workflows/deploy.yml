@@ -5,6 +5,10 @@ on:
     branches:
       - main  # 当 main 分支有 push 时触发
 
+# GITHUB_TOKEN 默认只有 Contents: read，推送 gh-pages 分支与创建 Release 需要写权限
+permissions:
+  contents: write
+
 jobs:
   deploy:
     runs-on: ubuntu-latest  # 使用最新版本的 Ubuntu 作为运行环境
