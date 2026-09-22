@@ -6,8 +6,7 @@ A purely local project based on OnlyOffice, supporting local `opening and editin
 
 A local web-based document editor based on OnlyOffice, allowing you to edit documents directly in your browser without server-side processing, ensuring your privacy and security.
 
-
-[English](README.md) | [中文](readme.zh.md)
+[English](README.md) | [中文](readme.zh.md) | [Changelog](CHANGELOG.md)
 
 
 ## ✨ Key Features
@@ -54,21 +53,17 @@ Example:
 
 If the file name cannot be retrieved, the operation will terminate with an error prompt.
 
-## Word
+![image-20260921092719591](.imgs/image-20260921092719591.png)
 
-![recording](./.imgs/recording.gif)
+## 📚 Format Support & Features
 
-## Excel
-
-![image-20250524104950359](./.imgs/image-20250524104950359.png)
-
-## PPT
-
-![image-20250524105044644](./.imgs/image-20250524105044644.png)
-
-## Export Document
-
-![image-20250524104854846](./.imgs/image-20250524104854846.png)
+| Feature | Supported formats | Preview |
+| --- | --- | --- |
+| Word editing | DOCX | <img src=".imgs/image-20260921092749217.png" alt="Word editor" width="360" /> |
+| Spreadsheet editing | XLSX | <img src=".imgs/image-20260921092808205.png" alt="Excel editor" width="360" /> |
+| Presentation editing | PPTX | <img src=".imgs/image-20260921092826958.png" alt="PPT editor" width="360" /> |
+| PDF viewing | PDF | <img src=".imgs/image-20260921092912651.png" alt="PDF viewer" width="360" /> |
+| Document export | DOCX, XLSX, PPTX, PDF | <img src="./.imgs/image-20250524104854846.png" alt="Document export" width="360" /> |
 
 ## Development Setup
 
@@ -103,6 +98,17 @@ docker run -dp 8080:80 --name local-office vue-local-office
 ```
 
 After executing the above commands, open http://localhost:8080 in a browser to preview.
+
+## GitHub Actions (Release / Pages)
+
+Workflows live in `.github/workflows/` (ported from onlyoffice-web-local, using npm):
+
+| Workflow | Trigger | What it does |
+|----------|---------|--------------|
+| `release.yml` | Push `v*` tag, or manual `workflow_dispatch` | `npm run build` → upload `html.zip` to a Release |
+| `deploy.yml` | Push to `main` | Deploy GitHub Pages + upload `html.zip` |
+
+**Note:** Full offline assets live in `public/vendor` (~700MB) and are tracked directly in Git, so clones and initial deployments are large. Each Release asset must stay under ~2 GiB.
 
 ## Technical Details
 

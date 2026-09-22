@@ -23,6 +23,7 @@ bin/
 *.tsbuildinfo
 *.local
 html/
+html.zip
 
 # ===== Python =====
 __pycache__/
@@ -33,6 +34,7 @@ venv/
 
 # ===== Node =====
 node_modules/
+packages/oo-offline/node_modules/
 
 # ===== 日志 =====
 *.log
@@ -41,6 +43,11 @@ logs/
 # ===== 操作系统 =====
 Thumbs.db
 ehthumbs.db
+.DS_Store
+
+# ===== 编辑器 / IDE =====
+.vscode/
+.idea/
 
 # ===== 项目专属（编译产物 / 自动生成声明 / 测试残留） =====
 *.js.map

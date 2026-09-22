@@ -5,7 +5,7 @@
 [live-demo🪄](https://sweetwisdom.github.io/onlyoffice-web-local/)
 
 
-[English](README.md) | [中文](readme.zh.md)
+[English](README.md) | [中文](readme.zh.md) | [更新日志](CHANGELOG.md)
 
 
 基于 OnlyOffice 的本地网页文档编辑器，让您直接在浏览器中编辑文档，无需服务器端处理，保护您的隐私安全。
@@ -50,23 +50,17 @@
 
 
 
-## word
+![打开远程文件](.imgs/image-20260921092719591.png)
 
-![recording](./.imgs/recording.gif)
+## 📚 格式支持与功能展示
 
-## excel
-
-![image-20250524104950359](./.imgs/image-20250524104950359.png)
-
-## ppt
-
-![image-20250524105044644](./.imgs/image-20250524105044644.png)
-
-
-
-## 导出文档
-
-![image-20250524104854846](./.imgs/image-20250524104854846.png)
+| 功能 | 支持格式 | 预览 |
+| --- | --- | --- |
+| Word 编辑 | DOCX | <img src=".imgs/image-20260921092749217.png" alt="Word 编辑器" width="360" /> |
+| 表格编辑 | XLSX | <img src=".imgs/image-20260921092808205.png" alt="Excel 编辑器" width="360" /> |
+| 演示文稿编辑 | PPTX | <img src=".imgs/image-20260921092826958.png" alt="PPT 编辑器" width="360" /> |
+| PDF 查看 | PDF | <img src=".imgs/image-20260921092912651.png" alt="PDF 查看器" width="360" /> |
+| 文档导出 | DOCX、XLSX、PPTX、PDF | <img src="./.imgs/image-20250524104854846.png" alt="文档导出" width="360" /> |
 
 ## 开发支持
 
@@ -98,6 +92,17 @@ docker run -dp 8080:80 --name local-office vue-local-office
 
 操作完上面两个命令后，在浏览器打开 http://localhost:8080 即可预览
 
+## GitHub Actions（Release / Pages）
+
+工作流已放在 `.github/workflows/`（源自 onlyoffice-web-local，已改为 npm）：
+
+| 工作流 | 触发 | 行为 |
+|--------|------|------|
+| `release.yml` | 推送 `v*` tag，或手动 `workflow_dispatch` | `npm run build` → 上传 `html.zip` 到 Release |
+| `deploy.yml` | 推送 `main` | 部署 GitHub Pages + 上传 `html.zip` Release |
+
+**注意**：完整离线产物在 `public/vendor`（约 700MB），直接存储在 Git 中，因此克隆与首次部署的数据量较大；单附件 Release 勿超过约 2GiB。
+
 ## 技术原理
 
 使用x2t-wam替代onlyofice服务
@@ -109,4 +114,3 @@ docker run -dp 8080:80 --name local-office vue-local-office
 [Qihoo360/se-office: se-office扩展，提供基于开放标准的全功能办公生产力套件，基于浏览器预览和编辑office。](https://github.com/Qihoo360/se-office)
 
 [cryptpad/onlyoffice-x2t-wasm: CryptPad WebAssembly file conversion tool](https://github.com/cryptpad/onlyoffice-x2t-wasm)
-
